@@ -12,10 +12,12 @@ class Admin::CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    authorize @course
   end
 
   def create
     @course = Course.new(course_params)
+    authorize @course
     
     if @course.save
       redirect_to admin_courses_path, notice: 'Course was successfully created.'
@@ -25,11 +27,13 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
+    authorize @course
   end
 
 
   def update
     if @course.update(course_params)
+      authorize @course
       redirect_to admin_course_path(@course), notice: 'Course was successfully updated.'
     else
       render :edit
@@ -37,6 +41,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def assign_instructor
+    authorize @course
     @course.update(instructor_id: params[:id])
     redirect_to admin_courses_path, notice: 'Instructor assigned successfully.'
   end

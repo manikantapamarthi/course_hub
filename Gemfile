@@ -27,9 +27,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "devise"
-gem 'cancancan', '~> 3.5'
 gem "cssbundling-rails"
 gem "faker"
+
+gem 'bunny', '~> 2.4'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -74,3 +75,5 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem "pundit", "~> 2.3"

@@ -1,0 +1,9 @@
+<h1><%= @course.title %></h1>
+<p><%= @course.description %></p>
+<p>Assign Instructor</p>
+<%= form_with(url: admin_assign_instructor_path, method: :post) do |f| %>
+  <%= f.collection_select :instructor_id, @instructors, :id, :name %>
+  <%= f.submit "Assign Instructor" %>
+<% end %>
+
+<%= link_to "Edit", edit_admin_course_path(@course) %>
